@@ -61,7 +61,7 @@ An Example Trip:
 
 page for creating a new vehicle
 
-![Add Vehicle](documentation/addVehicle.png)
+![Add Vehicle](documentation/addVehicle.PNG)
 
 page for showing creating a new trip
 
