@@ -3,14 +3,14 @@ URLSlugs = require('mongoose-url-slugs'),
 passportLocalMongoose = require('passport-local-mongoose');
 
 
-const User = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
 	username: {type: String, required: true},
 	hash: {type: String, required: true},	//user's password hashed
  	trips:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'Trip' }],	//list of user's trips
   	vehicles:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle' }]	//list of user's vehicles
 });
 
-const Vehicle = new mongoose.Schema({
+const VehicleSchema = new mongoose.Schema({
 	user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
 	name: {type: String, required: true},	//name of vehicle
 	company: {type: String, required: true},	//name of maker of vehicle
@@ -25,7 +25,7 @@ const Vehicle = new mongoose.Schema({
 });
 
 
-const Trip = new mongoose.Schema({
+const TripSchema = new mongoose.Schema({
   	user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
   	name: {type: String, required: false},
 	modeOfTransportation: {type: String, required: true},
@@ -36,10 +36,24 @@ const Trip = new mongoose.Schema({
 });
 
 
-User.plugin(passportLocalMongoose);
-List.plugin(URLSlugs('name'));
+UserSchema.plugin(passportLocalMongoose);
+TripSchema.plugin(URLSlugs('name'));
 
-mongoose.model('User', User);
-mongoose.model('Vehicle', List);
-mongoose.model('Trip', Item);
-mongoose.connect('mongodb://localhost/carbonpal');
+mongoose.model('User', UserSchema);
+mongoose.model('Vehicle', VehicleSchema);
+mongoose.model('Trip', TripSchema);
+
+const mongooseOpts = {
+	useNewUrlParser: true,  
+	useUnifiedTopology: true
+};
+
+mongoose.connect('mongodb://localhost/aitFinal', mongooseOpts, (err) => {
+	if (err) {
+	  console.log(err);
+	} else {
+	  console.log('connected to database'); 
+	}
+});
+
+//module.exports = mongoose.model('User', UserSchema);

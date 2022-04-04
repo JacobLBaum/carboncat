@@ -1,0 +1,20 @@
+<h2 class="center">Trips</h2>
+<a href="/trips/add">Create a new trip</a>
+<table>
+<tr>
+    <td>Trip Name</td>
+    <td>Mode of Transportation</td>
+    <td>Distance</td>
+    <td>Duration</td>
+    <td>Number of Travelers</td>
+</tr>
+{{#each trips as |t|}}
+<tr>
+    <td>{{t.name}}</td>
+    <td>{{t.modeOfTransportation}}</td>
+    <td>{{t.distance}}</td>
+    <td>{{t.duration}}</td>
+    <td>{{t.numTravelers}}</td>
+</tr>
+{{/each}}
+</table>
