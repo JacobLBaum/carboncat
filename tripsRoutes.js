@@ -32,6 +32,8 @@ router.get('/add', (req, res) => {
 });
 
 router.post('/add', async (req, res) => {
+    const gglDrctns = request.get('https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=YOUR_API_KEY')    //API for directions from Google maps
+    //info on Google Maps API here: https://developers.google.com/maps/documentation/directions/quickstart#api-key
     await client.connect();
     console.log("Connected correctly to MongoDB-Atlas server");
     const db = client.db(dbName);
@@ -40,7 +42,7 @@ router.post('/add', async (req, res) => {
     const trip = new Trip({
         user: req.session.user, name: req.body.name, 
         modeOfTransportation: req.body.modeOfTransportation, distance: req.body.distance, duration: req.body.duration, 
-        numTravelers: req.body.numTravelers, createdAt: new Date(Date.now())
+        numTravelers: req.body.numTravelers, createdAt: new Date(Date.now()), emissions: req.body.distance*323/1000
     })
 
     const p = await col.insertOne(trip);

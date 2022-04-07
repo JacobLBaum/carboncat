@@ -33,6 +33,7 @@ const TripSchema = new mongoose.Schema({
 	duration: {type: Number, min: 0, required: true},
 	numTravelers: {type: Number, min: 1, required: true},
 	createdAt: {type: Date, required: true},
+	emissions: {type: Number, required: true}
 });
 
 

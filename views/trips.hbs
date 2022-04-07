@@ -7,6 +7,7 @@
     <td>Distance</td>
     <td>Duration</td>
     <td>Number of Travelers</td>
+    <td>Carbon Emissions</td>
 </tr>
 {{#each trips as |t|}}
 <tr>
@@ -15,6 +16,7 @@
     <td>{{t.distance}}</td>
     <td>{{t.duration}}</td>
     <td>{{t.numTravelers}}</td>
+    <td>{{t.emissions}}</td>
 </tr>
 {{/each}}
 </table>
