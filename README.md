@@ -49,8 +49,11 @@ An Example Trip:
   name: "trip to work",
   modeOfTransportation: "Bus",
   distance: 3.5,
-  duration: 15  
+  duration: 15,
+  numPassengers: 2
   createdAt: // timestamp
+  emissions: 30.2
+
 }
 ```
 
@@ -95,11 +98,13 @@ page for viewing summary of user's carbon usage
 * (2 points) Using Bootstrap
     * I'm going to use Bootstrap to design the CSS of my website
     * I will need to learn how Bootstrap works
-* (4 points) Use External APIs
+* (3 points) Use External APIs
     * I plan to use Google maps API to help track user routes
     * I plan to use other APIs to help provide additional carbon emission statistics such as [CoolClimate API](https://api-central.berkeley.edu/api/11)
-* (3 points) Perform Client Side Form Validation with Javascript
-    * I plan to use form validation for login and entry for fields related to created vehicles and trips, I have already found some relevant information [here](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
+* ~~(3 points) Perform Client Side Form Validation with Javascript~~
+    * ~~I plan to use form validation for login and entry for fields related to created vehicles and trips, I have already found some relevant information [here](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)~~
+* (2 points) Deploying on Heroku
+* (2 points) Using MongoDB-Atlas as database
 
 9 points total out of 8 required points
 

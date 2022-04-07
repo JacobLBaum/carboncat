@@ -1,3 +1,4 @@
+const { Int32 } = require('mongodb');
 const mongoose = require('mongoose'),
 URLSlugs = require('mongoose-url-slugs'),
 passportLocalMongoose = require('passport-local-mongoose');
