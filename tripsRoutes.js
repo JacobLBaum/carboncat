@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Vehicle = mongoose.model('Vehicle')
 const Trip = mongoose.model('Trip')
-const url = "mongodb+srv://leafweaf:<Password>@carboncat.bfufj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(url);
+const uri = process.env.MONGODB_URI;
+const client = new MongoClient(uri);
 const dbName = "CarbonCat"
 
 
